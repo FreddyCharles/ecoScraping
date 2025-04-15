@@ -8,6 +8,10 @@ import logging
 from urllib.parse import urlparse
 from socket import timeout
 
+# Constants for file paths and data directory
+DATA_DIR = "economic_data"
+os.makedirs(DATA_DIR, exist_ok=True)
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -19,9 +23,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Constants for file paths and data directory
-DATA_DIR = "economic_data"
-os.makedirs(DATA_DIR, exist_ok=True)
+
 
 def scrape_and_store_data(url, company_name):
     """
@@ -74,7 +76,7 @@ def scrape_and_store_data(url, company_name):
             return False
 
         try:
-            with open(filename, "a", newline="", encoding="utf-8") as csvfile:
+            with open(filename, "a+", newline="", encoding="utf-8") as csvfile: # changed to a+
                 writer = csv.writer(csvfile)
                 if not file_exists:
                     writer.writerow(headers)
