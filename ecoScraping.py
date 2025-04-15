@@ -23,6 +23,13 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# List of UK companies and their URLs (example - you'll need to fill this with real data)
+UK_COMPANIES = {
+    "Company1": "https://example.com/company1-financials",  # Replace with actual URLs
+    "Company2": "https://example.com/company2-financials",
+    "Company3": "https://example.com/company3-financials",
+    # Add more companies and URLs here...
+}
 
 
 def scrape_and_store_data(url, company_name):
@@ -126,40 +133,41 @@ def process_command_line():
         argparse.Namespace: The parsed arguments.
     """
     parser = argparse.ArgumentParser(description="Scrape economic data and store it in CSV files.")
-    parser.add_argument("company_name", help="The name of the company to scrape data for.")
-    parser.add_argument("url", help="The URL of the website to scrape.")
+    parser.add_argument(
+        "-a", "--all", action="store_true", help="Scrape data for all UK companies in the list."
+    )
+    parser.add_argument("company_name", nargs="?", help="The name of the company to scrape data for.")
+    parser.add_argument("url", nargs="?", help="The URL of the website to scrape.")
     return parser.parse_args()
 
-def is_valid_url(url):
-    """
-    Checks if a URL is valid.
 
-    Args:
-        url (str): The URL to check.
-
-    Returns:
-        bool: True if the URL is valid, False otherwise.
-    """
-    try:
-        result = urlparse(url)
-        return all([result.scheme, result.netloc])
-    except ValueError:
-        return False
 
 def main():
     """
     Main function to run the scraper.
     """
     args = process_command_line()
-    company_name = args.company_name
-    url = args.url
 
-    logger.info(f"Starting scraper for {company_name} at {url}")
-    if scrape_and_store_data(url, company_name):
-        logger.info("Scraping process completed successfully.")
+    if args.all:
+        logger.info("Scraping data for all UK companies...")
+        for company_name, url in UK_COMPANIES.items():
+            if not scrape_and_store_data(url, company_name):
+                logger.error(f"Failed to scrape data for {company_name} at {url}")
+        logger.info("Scraping process completed.")
+    elif args.company_name and args.url:
+        company_name = args.company_name
+        url = args.url
+        logger.info(f"Starting scraper for {company_name} at {url}")
+        if scrape_and_store_data(url, company_name):
+            logger.info("Scraping process completed successfully.")
+        else:
+            logger.error("Scraping process failed.")
+            sys.exit(1)
     else:
-        logger.error("Scraping process failed.")
+        logger.error("Please provide either a company name and URL, or use the -a flag to scrape all companies.")
         sys.exit(1)
+
+
 
 if __name__ == "__main__":
     main()
