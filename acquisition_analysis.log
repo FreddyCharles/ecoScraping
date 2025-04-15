@@ -1,0 +1,81 @@
+2025-04-15 20:32:46,866 - INFO - Logging initialized.
+2025-04-15 20:32:46,887 - INFO - [ACQUISITION] Starting data acquisition phase.
+2025-04-15 20:32:46,889 - ERROR - [ACQUISITION] User agent (email) is not set. Please configure USER_AGENT in the script.
+2025-04-15 20:32:46,889 - WARNING - [ANALYSIS] Skipping analysis phase because the acquisition phase failed.
+2025-04-15 20:32:46,889 - INFO - Script execution finished.
+2025-04-15 20:36:01,946 - INFO - Logging initialized.
+2025-04-15 20:36:01,948 - INFO - [ACQUISITION] Starting data acquisition phase.
+2025-04-15 20:36:01,950 - INFO - [ACQUISITION] Download directory set to: sec_edgar_filings
+2025-04-15 20:36:03,041 - INFO - [ACQUISITION] SEC Edgar Downloader initialized with User-Agent: Freddy Charles freddycharles04@gmail.com
+2025-04-15 20:36:03,044 - INFO - [ACQUISITION] Attempting to download 10-K for AAPL (last 3 filings).
+2025-04-15 20:36:03,044 - ERROR - [ACQUISITION] Failed to download 10-K for AAPL: Downloader.get() got an unexpected keyword argument 'amount'
+Traceback (most recent call last):
+  File "c:\Users\fredd\OneDrive\Mechanical Engineering\Python\ecoScraping\ecoScraping.py", line 101, in acquire_filings
+    count = dl.get(filing_type, identifier, amount=num_filings)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Downloader.get() got an unexpected keyword argument 'amount'
+2025-04-15 20:36:03,046 - INFO - [ACQUISITION] Attempting to download 10-K for MSFT (last 3 filings).
+2025-04-15 20:36:03,047 - ERROR - [ACQUISITION] Failed to download 10-K for MSFT: Downloader.get() got an unexpected keyword argument 'amount'
+Traceback (most recent call last):
+  File "c:\Users\fredd\OneDrive\Mechanical Engineering\Python\ecoScraping\ecoScraping.py", line 101, in acquire_filings
+    count = dl.get(filing_type, identifier, amount=num_filings)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Downloader.get() got an unexpected keyword argument 'amount'
+2025-04-15 20:36:03,047 - INFO - [ACQUISITION] Attempting to download 10-K for GOOGL (last 3 filings).
+2025-04-15 20:36:03,047 - ERROR - [ACQUISITION] Failed to download 10-K for GOOGL: Downloader.get() got an unexpected keyword argument 'amount'
+Traceback (most recent call last):
+  File "c:\Users\fredd\OneDrive\Mechanical Engineering\Python\ecoScraping\ecoScraping.py", line 101, in acquire_filings
+    count = dl.get(filing_type, identifier, amount=num_filings)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Downloader.get() got an unexpected keyword argument 'amount'
+2025-04-15 20:36:03,047 - INFO - [ACQUISITION] Attempting to download 10-K for INVALIDTICKER (last 3 filings).
+2025-04-15 20:36:03,047 - ERROR - [ACQUISITION] Failed to download 10-K for INVALIDTICKER: Downloader.get() got an unexpected keyword argument 'amount'
+Traceback (most recent call last):
+  File "c:\Users\fredd\OneDrive\Mechanical Engineering\Python\ecoScraping\ecoScraping.py", line 101, in acquire_filings
+    count = dl.get(filing_type, identifier, amount=num_filings)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Downloader.get() got an unexpected keyword argument 'amount'
+2025-04-15 20:36:03,050 - INFO - [ACQUISITION] Acquisition phase completed. Successful attempts (at least one filing found): 0, Failed attempts: 4.
+2025-04-15 20:36:03,050 - WARNING - [ACQUISITION] Note: This script only downloads raw filings. Parsing these files into structured data (like input_financials.csv) is a separate step required before Phase 2 analysis.
+2025-04-15 20:36:03,052 - INFO - [ANALYSIS] Starting analysis phase. Reading data from input_financials.csv.
+2025-04-15 20:36:03,085 - INFO - [ANALYSIS] Successfully loaded data from input_financials.csv. Shape: (3, 9)
+2025-04-15 20:36:03,085 - INFO - [ANALYSIS] Starting data validation and cleaning.
+2025-04-15 20:36:03,102 - INFO - [ANALYSIS] Data validation and cleaning complete.
+2025-04-15 20:36:03,104 - INFO - [ANALYSIS] Starting ratio calculations.
+2025-04-15 20:36:03,106 - INFO - [ANALYSIS] Ratio calculations complete.
+2025-04-15 20:36:03,115 - INFO - [ANALYSIS] Successfully wrote analysis results to output_ratios.csv.
+2025-04-15 20:36:03,120 - INFO - [ANALYSIS] Analysis phase finished.
+2025-04-15 20:36:03,120 - INFO - Script execution finished.
+2025-04-15 20:40:05,635 - INFO - Logging initialized.
+2025-04-15 20:40:05,643 - INFO - [ACQUISITION] Starting data acquisition phase.
+2025-04-15 20:40:05,643 - INFO - [ACQUISITION] Download directory set to: sec_edgar_filings
+2025-04-15 20:40:06,229 - INFO - [ACQUISITION] SEC Edgar Downloader initialized.
+2025-04-15 20:40:06,231 - INFO - [ACQUISITION] Attempting to download 10-K for AAPL (limit: 3 filings).
+2025-04-15 20:40:09,096 - INFO - [ACQUISITION] Successfully downloaded 3 10-K filing(s) for AAPL.
+2025-04-15 20:40:09,098 - INFO - [ACQUISITION] Attempting to download 10-K for MSFT (limit: 3 filings).
+2025-04-15 20:40:12,321 - INFO - [ACQUISITION] Successfully downloaded 3 10-K filing(s) for MSFT.
+2025-04-15 20:40:12,323 - INFO - [ACQUISITION] Attempting to download 10-K for GOOGL (limit: 3 filings).
+2025-04-15 20:40:15,524 - INFO - [ACQUISITION] Successfully downloaded 3 10-K filing(s) for GOOGL.
+2025-04-15 20:40:15,524 - INFO - [ACQUISITION] Attempting to download 10-K for INVALIDTICKER (limit: 3 filings).
+2025-04-15 20:40:15,524 - ERROR - [ACQUISITION] Value error for INVALIDTICKER: Ticker 'INVALIDTICKER' is invalid and cannot be mapped to a CIK. Please enter a valid ticker or CIK.
+Traceback (most recent call last):
+  File "c:\Users\fredd\OneDrive\Mechanical Engineering\Python\ecoScraping\ecoScraping.py", line 118, in acquire_filings
+    count = dl.get(
+            ^^^^^^^
+  File "C:\Users\fredd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\sec_edgar_downloader\_Downloader.py", line 126, in get
+    cik = validate_and_convert_ticker_or_cik(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fredd\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\sec_edgar_downloader\_utils.py", line 38, in validate_and_convert_ticker_or_cik
+    raise ValueError(
+ValueError: Ticker 'INVALIDTICKER' is invalid and cannot be mapped to a CIK. Please enter a valid ticker or CIK.
+2025-04-15 20:40:15,528 - INFO - [ACQUISITION] Acquisition phase completed. Tickers processed: 4. Successful tickers (>=1 filing): 3. Failed tickers: 1. Total filings downloaded: 9.
+2025-04-15 20:40:15,530 - WARNING - [ACQUISITION] Note: This script only downloads raw filings. Parsing these files into structured data (like input_financials.csv) is a separate step required before Phase 2 analysis.
+2025-04-15 20:40:15,534 - INFO - [ANALYSIS] Starting analysis phase. Reading data from input_financials.csv.
+2025-04-15 20:40:15,544 - INFO - [ANALYSIS] Successfully loaded data from input_financials.csv. Shape: (3, 9)
+2025-04-15 20:40:15,546 - INFO - [ANALYSIS] Starting data validation and cleaning.
+2025-04-15 20:40:15,554 - INFO - [ANALYSIS] Data validation and cleaning complete.
+2025-04-15 20:40:15,556 - INFO - [ANALYSIS] Starting ratio calculations.
+2025-04-15 20:40:15,558 - INFO - [ANALYSIS] Ratio calculations complete.
+2025-04-15 20:40:15,564 - INFO - [ANALYSIS] Successfully wrote analysis results to output_ratios.csv.
+2025-04-15 20:40:15,566 - INFO - [ANALYSIS] Analysis phase finished.
+2025-04-15 20:40:15,566 - INFO - Script execution finished.

@@ -1,0 +1,4 @@
+CompanyName,Ticker,Year,TotalCurrentAssets,TotalCurrentLiabilities,TotalDebt,TotalEquity,Revenue,NetIncome
+Apple Inc.,AAPL,2023,143566,145308,111088,62146,383285,96995
+Microsoft Corp,MSFT,2023,184259,103170,47032,205308,211915,72361
+Alphabet Inc.,GOOGL,2023,159877,80911,28507,278633,307394,73795
